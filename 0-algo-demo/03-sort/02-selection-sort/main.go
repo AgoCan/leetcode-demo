@@ -6,7 +6,7 @@ import "fmt"
 
 func selectionSort(nums []int32) []int32 {
 	length := len(nums)
-	for i := 0; i < length; i++ {
+	for i := 0; i < length-1; i++ {
 		min := i
 		for j := i + 1; j < length; j++ {
 			if nums[j] < nums[min] {
@@ -14,6 +14,7 @@ func selectionSort(nums []int32) []int32 {
 			}
 		}
 		nums[i], nums[min] = nums[min], nums[i]
+		fmt.Println(nums)
 	}
 	return nums
 }
