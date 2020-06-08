@@ -44,14 +44,18 @@ for (int i = 0; i < len; i++) {
     print(nums[i]);
 }
 
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/remove-element
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
 func removeElement(nums []int, val int) int {
 	var length int
+	length = 0
 
+	for i := 0; i < len(nums); i++ {
+		if nums[i] != val {
+			nums[length] = nums[i]
+			length++
+		}
+	}
 	return length
 }
 
