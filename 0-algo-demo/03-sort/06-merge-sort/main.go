@@ -46,7 +46,7 @@ func mergeSort(nums []int, low, high int) {
 		mid := (low + high) / 2
 		mergeSort(nums, low, mid)
 		mergeSort(nums, mid+1, high)
-		//fmt.Println(nums)
+		fmt.Println(nums[low : high+1])
 		merge(nums, low, mid, high)
 
 	}
@@ -54,7 +54,7 @@ func mergeSort(nums []int, low, high int) {
 }
 
 func main() {
-	nums := []int{1, 3, 5, 7, 9, 2, 3, 3, 4, 6, 8, 9, 10}
+	nums := []int{1, 3, 5, 7, 2, 3, 2, 3, 2, 4, 6, 8, 9, 10}
 	mergeSort(nums, 0, len(nums)-1)
 	fmt.Println(nums)
 }
