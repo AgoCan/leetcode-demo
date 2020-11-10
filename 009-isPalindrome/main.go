@@ -25,10 +25,23 @@ package main
 */
 
 func isPalindrome(x int) bool {
-	if x < 0 {
+	if x < 0 || (x%10 == 0 && x != 0) {
 		return false
 	}
-	return false
+	revertedNumber := 0
+	// 12321
+	for x > revertedNumber {
+		// 1 = 0*10 + 1
+		// 1232 > 1
+		// 12 = 1*10 +2
+		// 123 > 12
+		// 123 = 12*10 +3
+		// 12<10
+		revertedNumber = revertedNumber*10 + x%10
+		x /= 10
+	}
+	// 123321 左右相等    ||     12321  左右差中间一位
+	return x == revertedNumber || x == revertedNumber/10
 }
 
 func main() {
