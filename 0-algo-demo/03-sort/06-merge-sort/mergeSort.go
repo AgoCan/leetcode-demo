@@ -27,14 +27,17 @@ func merge(nums []int, low, mid, high int) {
 			j++
 		}
 	}
+	// 左侧的还有数据，就加载临时数据的后面
 	for ; i <= mid; i++ {
 		numsTmp = append(numsTmp, nums[i])
 
 	}
+	// 右侧的还有数据，就加载临时数据的后面
 	for ; j <= high; j++ {
 		numsTmp = append(numsTmp, nums[j])
 
 	}
+	// 排序好之后直接赋值原来的切片
 	for k := low; k < len(numsTmp); k++ {
 		nums[k] = numsTmp[k]
 	}
