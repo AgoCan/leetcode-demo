@@ -17,8 +17,8 @@ func merge(nums []int, low, mid, high int) {
 	i := low
 	j := mid + 1
 	var numsTmp []int
+	// 左右依次做比较，因为递归后最小单位是2个元素的数组，就能保证每一次比较的数组都是有序的
 	for i <= mid && j <= high {
-
 		if nums[i] < nums[j] {
 			numsTmp = append(numsTmp, nums[i])
 			i++
@@ -27,14 +27,15 @@ func merge(nums []int, low, mid, high int) {
 			j++
 		}
 	}
+	// 左侧的还有数据，就加载临时数据的后面
 	for ; i <= mid; i++ {
 		numsTmp = append(numsTmp, nums[i])
-
 	}
+	// 右侧的还有数据，就加载临时数据的后面
 	for ; j <= high; j++ {
 		numsTmp = append(numsTmp, nums[j])
-
 	}
+	// 排序好之后直接赋值原来的切片
 	for k := low; k < len(numsTmp); k++ {
 		nums[k] = numsTmp[k]
 	}
@@ -42,13 +43,13 @@ func merge(nums []int, low, mid, high int) {
 
 func mergeSort(nums []int, low, high int) {
 	if low < high {
-
 		mid := (low + high) / 2
+		// 左侧比较
 		mergeSort(nums, low, mid)
+		// 右侧比较
 		mergeSort(nums, mid+1, high)
-		fmt.Println(nums[low : high+1])
+		
 		merge(nums, low, mid, high)
-
 	}
 
 }
