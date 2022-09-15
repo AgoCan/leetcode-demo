@@ -17,10 +17,6 @@ import "fmt"
 
 因为 nums[0] + nums[1] = 2 + 7 = 9
 所以返回 [0, 1]
-
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/two-sum
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
 /*
@@ -35,8 +31,8 @@ import "fmt"
 	map[3:0, 5:1, 2:2, 5:3]    3+5 =8  得到index等于0和3
 */
 func Sum(nums []int, target int) (ret []int) {
-	var res map[int]int
-	res = make(map[int]int, len(nums))
+
+	res := make(map[int]int, len(nums))
 	ret = make([]int, 2)
 	for i := 0; i < len(nums); i++ {
 		// i 是index  目标减去值
