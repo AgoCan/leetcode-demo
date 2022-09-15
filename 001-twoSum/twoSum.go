@@ -1,7 +1,5 @@
 package twoSum
 
-import "fmt"
-
 /*
 简单
 
@@ -34,22 +32,21 @@ func Sum(nums []int, target int) (ret []int) {
 
 	res := make(map[int]int, len(nums))
 	ret = make([]int, 2)
-	for i := 0; i < len(nums); i++ {
+
+	for i, v := range nums {
 		// i 是index  目标减去值
-		desired := target - nums[i]
-		fmt.Println(desired, i)
+		desired := target - v
 		// 如果目标减去下标所对应的值，就记录下来
 		// 如果目标存在。说明找到了值，可以返回了
 		// 例如 [4,2,1,3] 等于5， 第一轮找到了  4对0，2对1，1对2， 5-1=4在map里面
 		_, ok := res[desired]
 		if !ok {
 			// value = index
-			res[nums[i]] = i
+			res[v] = i
 		} else {
 			ret = []int{res[desired], i}
 			return ret
 		}
-
 	}
 	return ret
 }
