@@ -43,7 +43,3 @@ func isPalindrome(x int) bool {
 	// 123321 左右相等    ||     12321  左右差中间一位
 	return x == revertedNumber || x == revertedNumber/10
 }
-
-func main() {
-
-}
