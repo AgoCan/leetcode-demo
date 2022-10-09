@@ -49,16 +49,15 @@ import (
 )
 
 func romanToInt(s string) int {
-	var numMap01 map[rune]int
-	var numMap02 map[string]string
-	numMap01 = make(map[rune]int, 13)
-	numMap01 = map[rune]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000, 'A': 4, 'B': 9, 'E': 40, 'G': 90, 'K': 400, 'P': 900}
-	numMap02 = make(map[string]string, 7)
-	numMap02 = map[string]string{"IV": "A", "IX": "B", "XL": "E", "XC": "G", "CD": "K", "CM": "P"}
+
+	numMap01 := map[rune]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000, 'A': 4, 'B': 9, 'E': 40, 'G': 90, 'K': 400, 'P': 900}
+
+	numMap02 := map[string]string{"IV": "A", "IX": "B", "XL": "E", "XC": "G", "CD": "K", "CM": "P"}
+	
 	for k, v := range numMap02 {
 		s = strings.Replace(s, k, v, -1)
 	}
-	fmt.Println(s)
+	fmt.Println("s", s)
 	num := 0
 	for _, alpha := range s {
 		num += numMap01[alpha]
@@ -66,4 +65,3 @@ func romanToInt(s string) int {
 
 	return num
 }
-

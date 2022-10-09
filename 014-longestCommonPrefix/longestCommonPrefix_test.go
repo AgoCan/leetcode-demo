@@ -1,7 +1,13 @@
 package longestCommonPrefixDemo
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestLongestCommonPrefix(t *testing.T) {
-
+	a := []string{
+		"flower", "flow", "flight",
+	}
+	fmt.Println(longestCommonPrefix(a))
 }

@@ -27,12 +27,28 @@ package isValidDemo
 	输入: "{[]}"
 	输出: true
 */
+
 func isValid(s string) bool {
-	// 使用栈的方式解题
-
-	return false
-}
-
-func main() {
-
+	n := len(s)
+	if n%2 == 1 {
+		return false
+	}
+	pairs := map[byte]byte{
+		')': '(',
+		']': '[',
+		'}': '{',
+	}
+	stack := []byte{}
+	// 如果要是加上其他的符号，就是多个判断，只计算这三个符号即可，其他轮询过滤
+	for i := 0; i < n; i++ {
+		if pairs[s[i]] > 0 {
+			if len(stack) == 0 || stack[len(stack)-1] != pairs[s[i]] {
+				return false
+			}
+			stack = stack[:len(stack)-1]
+		} else {
+			stack = append(stack, s[i])
+		}
+	}
+	return len(stack) == 0
 }
