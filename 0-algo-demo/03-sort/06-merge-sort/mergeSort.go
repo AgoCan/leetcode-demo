@@ -1,7 +1,5 @@
 package mergeSortDemo
 
-import "fmt"
-
 // 归并, 此代码有问题，
 /*
 [1,3,5,7,9]
@@ -48,9 +46,8 @@ func mergeSort(nums []int, low, high int) {
 		mergeSort(nums, low, mid)
 		// 右侧比较
 		mergeSort(nums, mid+1, high)
-		
+
 		merge(nums, low, mid, high)
 	}
 
 }
-
