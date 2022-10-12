@@ -1,6 +1,10 @@
 package reversekgroupDemo
 
+import "fmt"
+
 /*
+
+> 简单的描述：  5个元素，k等于2 就反转 12 34 其中5不变。  5个元素，k等于3 就反转 123 其中45不变
 
 给你链表的头节点 head ，每 k 个节点一组进行翻转，请你返回修改后的链表。
 
@@ -55,6 +59,7 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 }
 
 func myReverse(head, tail *ListNode) (*ListNode, *ListNode) {
+	fmt.Println(head, tail)
 	prev := tail.Next
 	p := head
 	for prev != tail {
@@ -63,5 +68,6 @@ func myReverse(head, tail *ListNode) (*ListNode, *ListNode) {
 		prev = p
 		p = nex
 	}
+	fmt.Println(head, tail)
 	return tail, head
 }
